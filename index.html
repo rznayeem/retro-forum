@@ -6,6 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Retro Talk</title>
   <link rel="stylesheet" href="./styles/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css" rel="stylesheet" type="text/css" />
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
@@ -168,8 +171,72 @@
   </header>
 
 
-  <main>
+  <main class="container mx-auto">
     <!-- discuss section start -->
+    <section>
+      <div class="text-center">
+        <h2 class="text-[#12132D] text-4xl font-black lg:mt-24">Let’s Discuss</h2>
+        <p class="text-xl text-[#12132D99]">Yes, you can run unit tests and view the results directly within the app.
+          The <br> integrated testing features
+          allow for a streamlined .</p>
+      </div>
+      <div class="lg:grid grid-cols-12 gap-6 mt-12">
+
+        <div class=" lg:col-span-8 space-y-6 my-6 lg:my-0">
+          <div class="flex flex-col lg:flex-row justify-between gap-6 bg-[#F3F3F5] rounded-3xl p-10">
+            <img class="h-[72px] w-[72px] rounded-2xl" src="./images/dp.jpg" alt="">
+            <div class="space-y-5 w-5/6">
+              <div class="flex gap-5">
+                <p>#music</p>
+                <p>Author : Awlad Hossain</p>
+              </div>
+              <h3 class="text-[#12132D] font-bold text-xl">10 Kids Unaware of Their Halloween Costume</h3>
+              <p>It’s one thing to subject yourself to ha Halloween costume mishap because, <br> hey that’s your
+                prerogative
+              </p>
+              <hr class="border-dashed">
+              <div class="flex justify-between">
+                <div class="flex gap-6">
+                  <div class="flex items-center gap-3">
+                    <i class="fa-regular fa-message"></i>
+                    <span>560</span>
+                  </div>
+                  <div class="flex items-center gap-3">
+                    <i class="fa-regular fa-eye"></i>
+                    <span>560</span>
+                  </div>
+                  <div class="flex items-center gap-3">
+                    <i class="fa-regular fa-clock"></i>
+                    <span>560</span>
+                  </div>
+                </div>
+                <div>
+                  <button class="btn w-auto h-auto px-0 min-h-0 min-w-0 text-white rounded-full"><img
+                      src="./images/email.png" alt=""></button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="lg:col-span-4 p-6 bg-[#0C0D2D0D] rounded-3xl">
+          <div class="flex justify-between">
+            <h3 class="font-bold text-xl text-[#11182A]">Title</h3>
+            <p>Mark as read (4)</p>
+          </div>
+          <div class="flex justify-between bg-white p-4 rounded-2xl">
+            <p>
+              10 Kids Unaware of Their <br> Halloween Costume
+            </p>
+            <div class="flex items-center gap-2">
+              <i class="fa-regular fa-eye"></i>
+              <span>1568</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
 
