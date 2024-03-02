@@ -143,8 +143,8 @@
           coffee
           mug!</p>
         <label class="input input-bordered flex items-center lg:gap-2 rounded-full lg:w-[400px] min-h-0 h-auto">
-          <input type="text" class="grow" placeholder="Search here anything" />
-          <button
+          <input id="input-field" type="text" class="grow" placeholder="Search here anything" />
+          <button onclick="handleSearchBtn()"
             class="btn bg-[#797DFC] px-7 py-2 lg:-mr-3 -ml-10 m-1 font-bold text-xl rounded-full text-white w-auto h-auto min-h-0 min-w-0">Search</button>
         </label>
       </div>
@@ -180,6 +180,7 @@
           The <br> integrated testing features
           allow for a streamlined .</p>
       </div>
+
       <div class="lg:grid flex flex-col grid-cols-12 gap-6 mt-12">
 
         <div id="post-card-container" class=" lg:col-span-8 space-y-6 my-6 lg:my-0">

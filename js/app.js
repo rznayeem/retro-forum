@@ -26,6 +26,29 @@ const loadLatestPost = async () => {
   });
 };
 
+const loadPOstByCategory = async value => {
+  const res = await fetch(
+    `https://openapi.programming-hero.com/api/retro-forum/posts?category=${value}`
+  );
+  const data = await res.json();
+  const allPost = data.posts;
+  allPost.forEach(post => {
+    displayPost(post);
+    const postBtn = document.getElementById(`${post.id}`);
+    postBtn.addEventListener('click', () => handleMarkAsReadBtn(post));
+  });
+};
+
+const handleSearchBtn = () => {
+  postCardContainer.textContent = '';
+  const inputField = document.getElementById('input-field');
+  const inputValue = inputField.value;
+  // console.log(inputValue);
+  setTimeout(() => {
+    loadPOstByCategory(inputValue);
+  }, 2000);
+};
+
 const displayPost = post => {
   const div = document.createElement('div');
   div.innerHTML = `
