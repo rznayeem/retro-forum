@@ -1,6 +1,7 @@
 const postCardContainer = document.getElementById('post-card-container');
 const readPostContainer = document.getElementById('read-post-container');
 const readCount = document.getElementById('read-count');
+const latestPostContainer = document.getElementById('latest-post-container');
 
 const loadAllPost = async () => {
   const res = await fetch(
@@ -12,6 +13,16 @@ const loadAllPost = async () => {
     displayPost(post);
     const postBtn = document.getElementById(`${post.id}`);
     postBtn.addEventListener('click', () => handleMarkAsReadBtn(post));
+  });
+};
+
+const loadLatestPost = async () => {
+  const res = await fetch(
+    'https://openapi.programming-hero.com/api/retro-forum/latest-posts'
+  );
+  const data = await res.json();
+  data.forEach(post => {
+    displayLatestPost(post);
   });
 };
 
@@ -56,6 +67,34 @@ const displayPost = post => {
   postCardContainer.appendChild(div);
 };
 
+const displayLatestPost = post => {
+  const div = document.createElement('div');
+  div.innerHTML = `
+  <div class="card w-96 border bg-base-100 shadow-xl">
+  <figure class="m-6 rounded-3xl"><img
+      src="${post.cover_image}" alt="Shoes" />
+  </figure>
+  <div class="card-body space-y-4 h-[340px]">
+    <div>
+      <i class="fa-regular fa-calendar"></i>
+      <span>${post.author?.posted_date || 'No publish date'}</span>
+    </div>
+    <h2 class="card-title font-extrabold">${post.title}</h2>
+    <p>${post.description}</p>
+    <div class="card-actions items-center gap-4">
+      <img class="rounded-full w-11 h-11" src="${post.profile_image}" alt="">
+      <div>
+        <h3 class="font-bold text-xl">Cameron Williamson</h3>
+        <p>${post.author?.designation || 'Unknown'}</p>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  `;
+  latestPostContainer.appendChild(div);
+};
+
 const handleMarkAsReadBtn = post => {
   console.log(post);
   const div = document.createElement('div');
@@ -76,3 +115,4 @@ const handleMarkAsReadBtn = post => {
 };
 
 loadAllPost();
+loadLatestPost();
