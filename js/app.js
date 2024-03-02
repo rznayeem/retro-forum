@@ -1,4 +1,6 @@
 const postCardContainer = document.getElementById('post-card-container');
+const readPostContainer = document.getElementById('read-post-container');
+const readCount = document.getElementById('read-count');
 
 const loadAllPost = async () => {
   const res = await fetch(
@@ -8,6 +10,8 @@ const loadAllPost = async () => {
   const allPost = data.posts;
   allPost.forEach(post => {
     displayPost(post);
+    const postBtn = document.getElementById(`${post.id}`);
+    postBtn.addEventListener('click', () => handleMarkAsReadBtn(post));
   });
 };
 
@@ -41,7 +45,7 @@ const displayPost = post => {
         </div>
       </div>
       <div>
-        <button class="btn w-auto h-auto px-0 min-h-0 min-w-0 text-white rounded-full"><img
+        <button id="${post.id}" class="btn w-auto h-auto px-0 min-h-0 min-w-0 text-white rounded-full"><img
             src="./images/email.png" alt=""></button>
       </div>
     </div>
@@ -50,6 +54,25 @@ const displayPost = post => {
   
   `;
   postCardContainer.appendChild(div);
+};
+
+const handleMarkAsReadBtn = post => {
+  console.log(post);
+  const div = document.createElement('div');
+  div.innerHTML = `  
+  <div class="flex justify-between bg-white p-4 rounded-2xl">
+  <p>
+  ${post.title}
+  </p>
+  <div class="flex items-center gap-2">
+    <i class="fa-regular fa-eye"></i>
+    <span>${post.view_count}</span>
+  </div>
+</div>
+  `;
+  readPostContainer.appendChild(div);
+  const count = parseInt(readCount.innerText) + 1;
+  readCount.innerText = count;
 };
 
 loadAllPost();
