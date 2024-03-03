@@ -136,9 +136,10 @@
     <!-- hero section start -->
     <section
       class="bg-[#12132D] m-5 lg:m-0 px-5 flex flex-col lg:flex-row justify-around items-center bg-[url('/images/bgbanner.png')] bg-no-repeat bg-bottom bg-cover rounded-[40px] py-5 lg:py-24">
-      <div>
+      <div class="text-center lg:text-start">
         <h1 class="text-white lg:text-[64px] text-[36px] font-extrabold lg:font-black">Welcome to the <br> <span
-            class="bg-gradient-to-r from-[#797DFC] to-[#7D7DFC69] text-transparent bg-clip-text">ReTro</span> Forum</h1>
+            class="bg-gradient-to-r from-[#797DFC] to-[#7D7DFC69] text-transparent bg-clip-text">ReTroTalk</span> Forum
+        </h1>
         <p class="text-xl font-medium pb-8 text-[#FFFFFFCC]">Share your favorite opinion and win and wp <br> forum
           coffee
           mug!</p>
@@ -149,7 +150,7 @@
         </label>
       </div>
       <div class="flex items-center mt-5 lg:mt-0">
-        <ul class="bg-white text-[#12132DCC] p-5 lg:p-12 text-2xl font-medium space-y-6 rounded-[32px]">
+        <ul class="bg-white text-[#12132DCC] p-5 lg:p-12 text-2xl font-medium space-y-2 lg:space-y-6 rounded-[32px]">
           <li class="flex justify-between gap-14">
             <p>Registered Users</p> <span>01</span>
           </li>
@@ -173,14 +174,16 @@
 
   <main class="container mx-auto">
     <!-- let's discuss section start -->
-    <section>
+    <section class="m-5 lg:m-0">
       <div class="text-center">
         <h2 class="text-[#12132D] text-4xl font-black lg:mt-24">Let’s Discuss</h2>
         <p class="text-xl text-[#12132D99]">Yes, you can run unit tests and view the results directly within the app.
           The <br> integrated testing features
           allow for a streamlined .</p>
       </div>
-
+      <div id="spinner" class="text-center mt-6 hidden">
+        <span class="loading loading-bars loading-lg"></span>
+      </div>
       <div class="lg:grid flex flex-col grid-cols-12 gap-6 mt-12">
 
         <div id="post-card-container" class=" lg:col-span-8 space-y-6 my-6 lg:my-0">
@@ -188,7 +191,7 @@
         </div>
 
         <div class="lg:col-span-4">
-          <div id="read-post-container" class="p-6 bg-[#0C0D2D0D] rounded-3xl space-y-4">
+          <div id="read-post-container" class="p-6 bg-[#0C0D2D0D] min-h-[450px] rounded-3xl space-y-4">
             <div class="flex justify-between">
               <h3 class="font-bold text-xl text-[#11182A]">Title</h3>
               <p>Mark as read (<span id="read-count">0</span>)</p>
@@ -224,14 +227,14 @@
     <!-- join forum section end -->
 
     <!-- latest posts section start -->
-    <section>
+    <section class="">
       <div class="text-center">
         <h2 class="text-[#12132D] text-4xl font-black mb-6">Latest Posts</h2>
         <p>Yes, you can run unit tests and view the results directly within the app. The integrated testing features
           allow for a streamlined .</p>
       </div>
       <div>
-        <div id="latest-post-container" class="flex flex-col lg:flex-row justify-around mt-12">
+        <div id="latest-post-container" class="flex flex-col gap-5 lg:flex-row justify-around mt-12">
 
         </div>
       </div>
@@ -258,7 +261,7 @@
         </div>
       </nav>
       <hr class="border border-[#30325E1A] w-full">
-      <aside>
+      <aside class="mb-10">
         <p>Copyright © 2017, All Rights Reserved.</p>
       </aside>
     </footer>

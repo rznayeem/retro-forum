@@ -40,6 +40,7 @@ const loadPOstByCategory = async value => {
 };
 
 const handleSearchBtn = () => {
+  handleSpinner(true);
   postCardContainer.textContent = '';
   const inputField = document.getElementById('input-field');
   const inputValue = inputField.value;
@@ -50,11 +51,17 @@ const handleSearchBtn = () => {
 };
 
 const displayPost = post => {
+  handleSpinner(false);
   const div = document.createElement('div');
   div.innerHTML = `
   <div class="flex flex-col lg:flex-row justify-between gap-6 bg-[#F3F3F5] rounded-3xl p-10">
-  <img class="h-[72px] w-[72px] rounded-2xl" src="${post.image}" alt="">
-  <div class="space-y-5 w-5/6">
+  <div class="relative">
+    <img class="h-[72px] w-[72px] rounded-2xl" src="${post.image}" alt="">
+    <div id="${
+      post.id + 100
+    }" class="absolute lg:-top-1 top-0 lg:-right-1 rounded-full w-4 h-4"></div>
+  </div>
+  <div class="space-y-5 lg:w-5/6">
     <div class="flex gap-5">
       <p>#${post.category}</p>
       <p>Author : ${post.author.name}</p>
@@ -79,7 +86,9 @@ const displayPost = post => {
         </div>
       </div>
       <div>
-        <button id="${post.id}" class="btn w-auto h-auto px-0 min-h-0 min-w-0 text-white rounded-full"><img
+        <button id="${
+          post.id
+        }" class="btn w-auto h-auto px-0 min-h-0 min-w-0 text-white rounded-full"><img class="h-7 w-7"
             src="./images/email.png" alt=""></button>
       </div>
     </div>
@@ -88,6 +97,7 @@ const displayPost = post => {
   
   `;
   postCardContainer.appendChild(div);
+  handleActiveStatus(post);
 };
 
 const displayLatestPost = post => {
@@ -135,6 +145,24 @@ const handleMarkAsReadBtn = post => {
   readPostContainer.appendChild(div);
   const count = parseInt(readCount.innerText) + 1;
   readCount.innerText = count;
+};
+
+const handleSpinner = isLoading => {
+  const spinner = document.getElementById('spinner');
+  if (isLoading) {
+    spinner.classList.remove('hidden');
+  } else {
+    spinner.classList.add('hidden');
+  }
+};
+
+const handleActiveStatus = post => {
+  const activeStatus = document.getElementById(post.id + 100);
+  if (post.isActive === true) {
+    activeStatus.classList.add('bg-[#10B981]');
+  } else {
+    activeStatus.classList.add('bg-[#FF3434]');
+  }
 };
 
 loadAllPost();
