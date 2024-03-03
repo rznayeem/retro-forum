@@ -4,6 +4,7 @@ const readCount = document.getElementById('read-count');
 const latestPostContainer = document.getElementById('latest-post-container');
 
 const loadAllPost = async () => {
+  handleSpinner(true);
   const res = await fetch(
     'https://openapi.programming-hero.com/api/retro-forum/posts'
   );
@@ -48,6 +49,8 @@ const handleSearchBtn = () => {
   setTimeout(() => {
     loadPOstByCategory(inputValue);
   }, 2000);
+  const scrollTo = document.getElementById('discuss-section-container');
+  scrollTo.scrollIntoView({ block: 'start', behavior: 'smooth' });
 };
 
 const displayPost = post => {
@@ -59,7 +62,7 @@ const displayPost = post => {
     <img class="h-[72px] w-[72px] rounded-2xl" src="${post.image}" alt="">
     <div id="${
       post.id + 100
-    }" class="absolute lg:-top-1 top-0 lg:-right-1 rounded-full w-4 h-4"></div>
+    }" class="absolute -top-1 left-[60px] rounded-full w-4 h-4"></div>
   </div>
   <div class="space-y-5 lg:w-5/6">
     <div class="flex gap-5">
